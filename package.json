@@ -1,7 +1,7 @@
 {
   "name": "merehead",
   "version": "0.1.0",
-  "homepage": "https://rodder1200.github.io/Merehead/",
+  "homepage": "http://rodder.zzz.com.ua/Merehead/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.7.0",
