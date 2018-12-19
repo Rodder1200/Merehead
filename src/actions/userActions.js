@@ -22,18 +22,14 @@ export const fetchUsers = value => dispatch => {
 
 export const setPage = value => dispatch => {
   let storageValue = sessionStorage.getItem("page");
-  console.log("value: ", value);
   if (value || value === 0) {
-    console.log("SET storageValue");
     sessionStorage.setItem("page", value);
   }
-  console.log("storageValue: ", storageValue);
   dispatch({
     type: SET_PAGE,
     payload: value ? parseInt(value) : parseInt(storageValue)
   });
   if (!value && !storageValue) {
-    console.log("!value && !storageValue");
     dispatch({
       type: SET_PAGE,
       payload: 0

@@ -44,7 +44,6 @@ class MainPage extends Component {
   render() {
     const { users, classes, page, setPage, error } = this.props;
     const { rowsPerPage } = this.state;
-    console.log(this.props);
 
     const userItems = users.map((user, index) =>
       index < rowsPerPage * (page + 1) && index + 1 > rowsPerPage * page ? (
