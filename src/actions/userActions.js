@@ -22,17 +22,19 @@ export const fetchUsers = value => dispatch => {
 
 export const setPage = value => dispatch => {
   let storageValue = sessionStorage.getItem("page");
-  if (value || value === 0) {
-    sessionStorage.setItem("page", value);
-  }
-  dispatch({
-    type: SET_PAGE,
-    payload: value ? parseInt(value) : parseInt(storageValue)
-  });
-  if (!value && !storageValue) {
+  if (value === "init") {
     dispatch({
       type: SET_PAGE,
-      payload: 0
+      payload:
+        storageValue && storageValue !== "undefined"
+          ? parseInt(storageValue)
+          : 0
+    });
+  } else {
+    sessionStorage.setItem("page", value);
+    dispatch({
+      type: SET_PAGE,
+      payload: parseInt(value)
     });
   }
 };

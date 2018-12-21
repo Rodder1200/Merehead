@@ -33,8 +33,8 @@ class MainPage extends Component {
     rowsPerPage: 5
   };
 
-  componentWillMount() {
-    this.props.setPage();
+  componentDidUpdate() {
+    this.props.setPage("init");
   }
 
   componentDidMount() {
@@ -44,7 +44,6 @@ class MainPage extends Component {
   render() {
     const { users, classes, page, setPage, error } = this.props;
     const { rowsPerPage } = this.state;
-
     const userItems = users.map((user, index) =>
       index < rowsPerPage * (page + 1) && index + 1 > rowsPerPage * page ? (
         <TableRow key={user.id}>
